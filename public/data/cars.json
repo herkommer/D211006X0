@@ -1,4 +1,4 @@
-{"cars":[
-    { "make": "Volvo", "model": "V70", "color": "Red"},
-    { "make": "Volvo", "model": "V60", "color": "Black"}
-]}
+[
+    { "id": "10", "make": "Volvo", "model": "V70", "color": "Red"},
+    { "id": "20", "make": "Volvo", "model": "V60", "color": "Black"}
+]

@@ -1,12 +1,26 @@
-exports.anka = (req, res) => {
+exports.data_raw = (req, res) => {
 
     const data = require('../public/data/cars.json');
-    //res.send('NOT IMPLEMENTED: Cars index!');
     res.json(data);
  
 };
 
-exports.pelikan = (x,y) => {
-    // y.send('<b>u asked for car number 12.</b>');
-    y.sendfile('public/data/cars.html');
+exports.index = (req, res) => {
+
+    res.sendfile('public/data/cars.html');
+
+};
+
+exports.car_by_id = (req, res) => {
+
+    //How to get the value sent in and named id in the route
+    //res.send(req.params.id);
+
+    const cars = require('../public/data/cars.json');
+    
+    let car_data = cars.find( x => {
+        return x.id == req.params.id;
+    });
+
+    res.send(car_data);
 };
