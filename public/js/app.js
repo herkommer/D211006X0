@@ -25,5 +25,34 @@ req.onload = () => {
 };
 
 GetCarById = () =>  {
-    console.log('You are looking for car ' + document.getElementById('CarId').value);
+
+    let CarId = document.getElementById('CarId').value;
+
+    let GetCarById_URL = '../cars/' + CarId;
+    let req = new XMLHttpRequest();
+    req.open('GET', GetCarById_URL); 
+    req.responseType='json'; 
+    req.send();
+
+    req.onload = () => {
+        const data = req.response;
+        console.log(data);
+    
+        const carData = document.createElement('ul');
+        
+        let listItem = document.createElement('li');
+        listItem.textContent = data.make;
+        carData.appendChild(listItem);
+
+        listItem = document.createElement('li');
+        listItem.textContent = data.model;
+        carData.appendChild(listItem);
+
+        listItem = document.createElement('li');
+        listItem.textContent = data.color;
+        carData.appendChild(listItem);
+    
+        document.getElementById('carDetails').appendChild(carData);
+    };
+   
 };
