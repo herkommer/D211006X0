@@ -9,38 +9,6 @@
 <body>
     <h2>My cars</h2>
     <div id='mycars'></div>
-    <script>
-        console.log('hey hey from client');
-
-        let dataURL = '../data/cars.json';
-        let swan = new XMLHttpRequest();
-        swan.open('GET', dataURL); //preppa för att gå och  hämta data
-        swan.responseType='json'; //preppa för att ta emot json
-        swan.send(); //go featch!
-
-        console.log('data received');
-
-        //preppa vad som ska hända, när hämtningen är klar
-        //dvs när all data har hämtats, då triggas onload eventet
-        //och här skriver vi vad som ska ske då
-        swan.onload = () => {
-            const data = swan.response;
-            console.log(data);
-
-            const cars = data['cars'];
-
-            const myList = document.createElement('ul');
-            
-            for (let i = 0; i < cars.length; i++) {
-                console.log(i);
-                const listItem = document.createElement('li');
-                listItem.textContent = cars[i].make;
-                myList.appendChild(listItem);
-            };
-
-            //lägg till listan i HTML DOM, ex en DIV
-            document.getElementById('mycars').appendChild(myList);
-        };
-    </script>
+    <script src='../js/app.js'></script>
 </body>
 </html>
