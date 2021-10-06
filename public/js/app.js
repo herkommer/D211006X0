@@ -40,17 +40,21 @@ GetCarById = () =>  {
     
         const carData = document.createElement('ul');
         
-        let listItem = document.createElement('li');
-        listItem.textContent = data.make;
-        carData.appendChild(listItem);
+        //Finding all properties of the car
+        // console.log(Object.getOwnPropertyNames(data));
+        // Object.getOwnPropertyNames(data).forEach(
+        //     function (val, idx, array) {
+        //       console.log(val + ' -> ' + data[val]);
+        //     }
+        //   );
 
-        listItem = document.createElement('li');
-        listItem.textContent = data.model;
-        carData.appendChild(listItem);
-
-        listItem = document.createElement('li');
-        listItem.textContent = data.color;
-        carData.appendChild(listItem);
+        //refactoring
+        Object.getOwnPropertyNames(data).forEach(
+            function (val, idx, array) {
+                let listItem = document.createElement('li');
+                listItem.textContent = data[val];
+                carData.appendChild(listItem);
+            });
     
         document.getElementById('carDetails').appendChild(carData);
     };
