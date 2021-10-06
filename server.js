@@ -1,16 +1,22 @@
 'use strict';
 
 const express = require('express');
+const router = require('./routes');
 const app = express();
 const port = 8042;
+const indexRouter = require('./routes/index');
+
+
 
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
+app.use('/', indexRouter);
 
-    res.sendFile('public/index.html');
+// app.get('/', (req, res) => {
 
-});
+//     res.sendFile('public/index.html');
+
+// });
 
 app.listen(port);
 
