@@ -8,7 +8,7 @@ app.use(express.static('public'));
 
 app.get('/', (req, res) => {
 
-    res.send('<b>I am alive!</b>');
+    res.sendFile('public/index.html');
 
 });
 
