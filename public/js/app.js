@@ -23,3 +23,7 @@ req.onload = () => {
 
     document.getElementById('mycars').appendChild(myList);
 };
+
+GetCarById = () =>  {
+    console.log('You are looking for car ' + document.getElementById('CarId').value);
+};
