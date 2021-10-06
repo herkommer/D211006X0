@@ -5,12 +5,13 @@ const router = require('./routes');
 const app = express();
 const port = 8042;
 const indexRouter = require('./routes/index');
-
+const carsRouter = require('./routes/cars');
 
 
 app.use(express.static('public'));
 
 app.use('/', indexRouter);
+app.use('/cars', carsRouter);
 
 // app.get('/', (req, res) => {
 
